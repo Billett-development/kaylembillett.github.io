@@ -1,0 +1,136 @@
+/* big tablet 1200PX ( width smaller than row 1140px*/
+@media only screen and (max-width: 1200px) {
+    
+    .Name {
+    position: relative;
+    transform: translate(-50%, -50%);
+    font-size: 285%;
+    margin-top: 20%;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 102%;
+    
+}
+    
+    .contact-form {
+    
+    width: 95%;
+    margin: 0 auto;
+    margin-left: 30px;
+    padding: 10px;
+        
+}
+    
+}
+
+/* SMALL tablets to big tablet FROM 768 TO 1023 PX*/
+@media only screen and (max-width: 1023px) {
+    
+.contact-form {
+    
+    width: 95%;
+    margin: 0 auto;
+    margin-left: 10px;
+    padding: 10px; 
+}
+    
+.Name {
+        position: relative;
+        transform: translate(-50%, -50%);
+        margin-left: 102%;
+        font-size: 250%;   
+    }
+    
+#find-me {
+    width: 60%;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 80%;
+    padding-left: 15px;
+    border: 1px solid rgba(93, 93, 93, 0.31);
+}
+    
+    
+.long-copy { font-size: 90%; }
+.Grad-img { width: 130px; margin-left: 15%; }
+.Git-text p { padding: 10px; font-size: 65%; }
+    
+.button-overlay { font-size: 60%; }
+.modal-header { width: 70%; } 
+.tablink { height: 50px; }
+.modal-content { width: 70%; }
+.modalDialog {font-size: 90%;}
+.footer-nav { font-size: 65%;}
+    
+}
+
+
+
+
+/* SMALL PHONES to small tablets FROM 481 TO 767 PX*/
+@media only screen and (max-width: 767px) {
+    
+    .Name { font-size: 150%;}
+    .Sub_text {font-size: 100%;}
+    .long-copy { font-size: 65%; }
+    .Grad-img { width: 100px; margin-left: 10%; }
+
+    .button-overlay { font-size: 50%; }
+    .modalDialog {font-size: 60%;}
+    .tablink { height: 32px; width: 20%; font-size: 75%;}
+    .text-overlay { font-size: 85%;}
+    .sub-text-overlay {font-size: 50%;}
+    .span-1-of-2 { width: 100%; }
+    .footer-nav { margin-top: 50px;}
+    .Get-in-touch-title { display: none;}
+    .Top-left {border: none;}
+    .Top-right {border: none;}
+    .Btm-left {border: none;}
+    .Btm-right {border: none;}
+    
+    
+    .contact-form {
+        width: 90%;
+        margin-left: 5%;
+        display: block;
+        float: left;
+        margin-bottom: 10px;
+        margin-bottom: -80px;
+        
+    }
+    
+    
+/*                          responsive navigation*/
+    .mobile-nav-icon {display: inline-block;}
+    
+    
+    .main-nav {display: none; float: right;}
+    
+    .main-nav li a {  
+        
+        position: relative;
+        float: right;
+        margin-top: 0; 
+        display: block;
+        width: 60%;
+    
+    }
+    
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        display: block;
+        
+    }
+    
+}
+
+
+/* SMALL PHONES FROM 0 TO 480 PX*/
+@media only screen and (max-width: 480px) {
+    
+    .long-copy { font-size: 53%; }
+    .Grad-img { width: 85px; margin-left: 5%; }
+    .Sub_text {font-size: 80%;}
+    .span-1-of-3 {width: 100%;}
+    
+}
