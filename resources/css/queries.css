@@ -26,6 +26,7 @@
 /* SMALL tablets to big tablet FROM 768 TO 1023 PX*/
 @media only screen and (max-width: 1023px) {
     
+    
 .contact-form {
     
     width: 95%;
@@ -61,7 +62,8 @@
 .modal-content { width: 70%; }
 .modalDialog {font-size: 90%;}
 .footer-nav { font-size: 65%;}
-    
+.uni-img { width: 200px;}
+
 }
 
 
@@ -70,6 +72,15 @@
 /* SMALL PHONES to small tablets FROM 481 TO 767 PX*/
 @media only screen and (max-width: 767px) {
     
+    .header-main {
+    
+    background-image: linear-gradient(rgba(34, 38, 41, 0.1), rgba(0, 0, 0, 0.75)), url(img/Hero_image.JPEG);
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    
+}
     .Name { font-size: 150%;}
     .Sub_text {font-size: 100%;}
     .long-copy { font-size: 65%; }
@@ -77,7 +88,7 @@
 
     .button-overlay { font-size: 50%; }
     .modalDialog {font-size: 60%;}
-    .tablink { height: 32px; width: 20%; font-size: 75%;}
+    .tablink { height: 32px; width: 22%; font-size: 75%;}
     .text-overlay { font-size: 85%;}
     .sub-text-overlay {font-size: 50%;}
     .span-1-of-2 { width: 100%; }
@@ -87,7 +98,7 @@
     .Top-right {border: none;}
     .Btm-left {border: none;}
     .Btm-right {border: none;}
-    
+    .uni-img { width: 150px;}
     
     .contact-form {
         width: 90%;
@@ -132,5 +143,6 @@
     .Grad-img { width: 85px; margin-left: 5%; }
     .Sub_text {font-size: 80%;}
     .span-1-of-3 {width: 100%;}
+    .uni-img { width: 100px;}
     
 }

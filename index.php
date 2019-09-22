@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
 <!--    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css"> -->
     <link rel="stylesheet" type="text/css" href="resources/css/Grid-setup.css">
@@ -22,8 +22,6 @@
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
     
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -51,13 +49,12 @@
                 <li><a class="rectangle-out js-scroll-to-contact" href="#">Contact Me</a></li>
                 
             </ul>
-            
         </div>
     </nav>
 
 </header>
 
-<!--                                 ABOUT ME SECTION-->
+<!--                ABOUT ME SECTION-->
 
 <section class="section-about js-section-about" id="about">
     
@@ -243,65 +240,132 @@
                   <div class="col span-1-of-2">
                      
                       <h3 class="Get-in-touch-title">Get In Touch</h3>
-
+                    <a href="https://www.linkedin.com/in/kaylem-billett-4660a412b/">   
                       <div class="col span-1-of-2 Top-left">
-                         <a href="https://www.linkedin.com/in/kaylem-billett-4660a412b/" class="fab fa-linkedin linkedin-icon"></a>
+                         <i href="https://www.linkedin.com/in/kaylem-billett-4660a412b/" class="fab fa-linkedin linkedin-icon"></i>
                           <p>Feel free to look and follow my LinkedIn profile </p>
                       </div>
+                      </a>
+                      <a href="#">  
                       <div class="col span-1-of-2 Top-right">
-                         <a class="fab fa-facebook-square facebook-icon"></a>
+                         <i class="fab fa-facebook-square facebook-icon" ></i>
                           <p>My business facebook profile is currently under development. </p>
                       </div>
+                      </a>
+                      <a href="resources/Cv/cv%20kaylem%20website%20final.pdf">  
                       <div class="col span-1-of-2 Btm-left">
-                          <a href="resources/Cv/cv%20kaylem%20website%20final.pdf" class="fas fa-envelope-open-text email-icon"></a>
+                          <i  class="fas fa-envelope-open-text email-icon"></i>
                           <p>Click here to download a copy of my CV</p>
                       </div>
+                      </a>
+                      <a href="https://github.com/Billett-development">  
                       <div class="col span-1-of-2 Btm-right">
-                          <a href="https://github.com/Billett-development" class="Github-icon fab fa-github-square" ></a>
+                          <i  class="Github-icon fab fa-github-square" ></i>
                           <p>Feel free to stalk my personal instagram account.</p>
                       </div>
+                      </a>
                       
                   </div>
                 </div>
                 
+               
+                <?php 
+                
+                //message vars
+                $msg= '';
+
+    
+                // check for submit 
+if(filter_has_var(INPUT_POST, 'submit')){
+                    
+                    // get form data 
+                    $firstname = htmlspecialchars($_POST['first_name']);
+                    $lastname = htmlspecialchars($_POST['last_name']);
+                    $email = htmlspecialchars($_POST['email']);
+                    $message = htmlspecialchars($_POST['message']);
+                    
+                    
+                    // check required fields 
+                    
+                    
+if(!empty($email) && !empty($firstname) && !empty($lastname) && !empty($message)){
+     
+        // passed
+        // check email
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+                    
+                    // failed
+                    $msg = 'Please use a valid email';
+            
+                } else {
+                    
+                    //passed
+                    // recipient email
+                $toEmail = 'info@billettdevelopment.co.uk';
+                $subject = 'Contact request from' .$firstname;
+                $body = '<h2>Contact Request</h2>
+                         <h4>firstname</h4><p>'.$firstname.'</p>
+                         <h4>lastname</h4><p>'.$lastname.'</p>
+                         <h4>email</h4><p>'.$email.'</p>
+                         <h4>message</h4><p>'.$message.'</p>
+                ';
+            
+            
+            //email headers
+            
+            $headers = "MIME-version: 1.0" ."/r/n";
+            $headers .="Content-type:text/html;charset=UTF-8" . "/r/n";
+            
+            //additional headers
+            $headers .= "From: " .$firstname. "<".$email.">". "/r/n";
+            
+            if(mail($toEmail, $subject, $body, $headers)) {
+                
+                //email sent
+                    $msg = 'Your email has been sent!';
+                
+            } else {
+                
+                    $msg = 'Your email was not able to be sent';
+                
+                
+            }
+                    
+                }
+            } else {
+                        // failed 
+                        $msg = 'Please fill in all the fields';      
+       }        
+                                        }
+                
+                ?>
+                
+                <?php if($msg != ''): ?>
+                   
+                       <div><?php echo $msg; ?></div>
+                   
+                <?php endif; ?>
+                
+                
             <div class="col span-1-of-2" id="form">
                
-                <form action="contact_form.php" method="post" class="contact-form">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?> " method="post" class="contact-form">
                    
                    <div class="Contact-name">
                    <label id="Name-label"for="">What is your name?</label>
                     <div class="First-name">
-                        <input type="text" placeholder="First Name" name="first_name" required>
+                        <input value="<?php echo isset($_POST['first_name']) ? $firstname : ''; ?>" type="text" placeholder="First Name" name="first_name" required>
                     </div>
                     <div class="Last-name">
-                        <input type="text" placeholder="Last Name" name="Last_name" required>
+                        <input value="<?php echo isset($_POST['last_name']) ? $lastname : ''; ?>" type="text" placeholder="Last Name" name="last_name" required>
                     </div>
                     </div>
                     <div class="Contact-email">               
                     <label id="Email-label" for="">Enter you email</label>
                     <div>
-                        <input type="text" placeholder="e.g. example@hotmail.co.uk" name="email" required>
+                        <input type="text" placeholder="e.g. example@hotmail.co.uk" name="email" value="<?php echo isset($_POST['email']) ? $email : ''; ?>" required>
                     </div>
                     </div>
-                <div>
-                        <select name="find-me" id="find-me">
-                           <option value="" disabled selected>
-                                    Where did you find me?
-                            </option>    
-                            <option value="find_me">
-                                    Search Engine
-                            </option>
-                            <option value="find_me">
-                                    Friends
-                            </option>
-                            <option value="find_me">
-                                    Linkedin
-                            </option>
-                            <option value="find_me">
-                                    Other
-                            </option>
-                        </select>
-                    </div> 
                     
                     <div class="Contact-message">
                     <label id="Message-label" for="">message</label>

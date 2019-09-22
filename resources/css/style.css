@@ -16,7 +16,8 @@ html    {
     font-family: 'Open Sans', sans-serif, 'Arial', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    text-rendering: optimizeLegibility; 
+    text-rendering: optimizeLegibility;
+    
     
 }
 
@@ -45,7 +46,7 @@ h1 {
     
     font-weight: 400;
     text-transform: uppercase;
-    font-family: 'Righteous', cursive;
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 20px;
     color: #2e4057;
 }
@@ -199,18 +200,22 @@ h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Open Sans', sans-serif;
     color: rgba(255, 255, 255, 0.7);
+    
+    
+    
 }
 
 
 .Name {
+    
     position: relative;
     transform: translate(-50%, -50%);
     font-size: 285%;
     width: 100%;
     margin-top: 20%;
-    font-weight: 400;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     margin-left: 102%;
     
@@ -234,7 +239,10 @@ h6 {
     list-style: none;
     width: 100%;
     position: relative;
-    font-family: 'Righteous', cursive;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    
+    
 
 }
 
